@@ -2,6 +2,7 @@ return {
   -- Snippets Engine
   {
     "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
     dependencies = {
       "rafamadriz/friendly-snippets",
       config = function()
@@ -75,7 +76,7 @@ return {
             return true
           else
             return not context.in_treesitter_capture("comment")
-              and not context.in_syntax_group("Comment")
+                and not context.in_syntax_group("Comment")
           end
         end,
       }
