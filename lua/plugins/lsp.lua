@@ -42,7 +42,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neodev.nvim", opts = {} },
+      { "folke/neodev.nvim",   lazy = true, opts = {} },
       { "mason.nvim" },
       { "mason-lspconfig.nvim" },
       { "hrsh7th/cmp-nvim-lsp" },
@@ -56,7 +56,6 @@ return {
         lspconfig[server].setup({ capabilities = lsp_capabilities })
       end
 
-      -- NOTE: Is there a better way to get rid of this?
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {
