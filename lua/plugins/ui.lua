@@ -3,7 +3,21 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = { theme = "catppuccin" },
+    opts = function()
+      local noice = require("noice")
+      return {
+        options = { theme = "catppuccin" },
+        sections = {
+          lualine_x = {
+            {
+              noice.api.statusline.mode.get,
+              cond = noice.api.statusline.mode.has,
+              color = { fg = "#ff9e64" },
+            }
+          }
+        },
+      }
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -138,5 +152,29 @@ return {
     --       "i", "n", "s" }
     --   },
     -- },
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      char = "▏",
+      -- char = "│",
+      -- show_end_of_line = true,
+      filetype_exclude = {
+        "help",
+        "alpha",
+        "dashboard",
+        "neo-tree",
+        "Trouble",
+        "lazy",
+        "mason",
+        "notify",
+        "toggleterm",
+        "lazyterm",
+      },
+      show_trailing_blankline_indent = false,
+      show_current_context = false,
+    },
+
   },
 }
