@@ -6,7 +6,7 @@ return {
   cmd = { "TSUpadateSync" },
   opts = {
     highlight = { enable = true },
-    indent = { enable = true },
+    indent = { enable = false },
     ensure_installed = {
       "lua",
       -- "luadoc",
@@ -30,6 +30,7 @@ return {
       "json",
       "yaml",
       "toml",
+      "ini",
     },
     incremental_selection = {
       enable = true,
