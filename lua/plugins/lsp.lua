@@ -81,7 +81,7 @@ return {
       return {
         sources = {
           null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.prettier,
+          null_ls.builtins.formatting.prettierd,
         },
         on_attach = function()
           vim.api.nvim_create_autocmd("BufWritePre", {
