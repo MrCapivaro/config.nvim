@@ -48,8 +48,6 @@ return {
         end
       })
 
-      -- TODO: Implement a ensure_installed function that accepts standalone
-      -- formatters and lintes, like stylua
       require("mason-lspconfig").setup({
         ensure_installed = {
           "html",
@@ -73,26 +71,40 @@ return {
       })
     end,
   },
-  -- BUG: null-ls keeps formatting on save buffers,
-  -- even after they were "closed".
-  -- (how? am I not closing them correctly?)
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { { "mason.nvim" }, { "nvim-lua/plenary.nvim" } },
     opts = function()
       local null_ls = require("null-ls")
+      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       return {
+        root_dir = require("null-ls.utils").root_pattern(
+          ".null-ls-root",
+          "MakeFile",
+          ".git",
+          ".stylua.toml"
+        ),
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.prettierd,
         },
-        on_attach = function()
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            callback = function()
-              vim.lsp.buf.format()
-            end,
-          })
+        on_attach = function(client, bufnr)
+          if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              group = augroup,
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.format({
+                  bufnr = bufnr,
+                  -- filter = function(_client)
+                  --   return _client.name == "null-ls"
+                  -- end,
+                })
+              end
+            })
+          end
         end,
       }
     end,
