@@ -73,6 +73,9 @@ return {
       })
     end,
   },
+  -- BUG: null-ls keeps formatting on save buffers,
+  -- even after they were "closed".
+  -- (how? am I not closing them correctly?)
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },

@@ -11,6 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local lazyopts = require("extras.lazyopts")
-require("lazy").setup(lazyopts)
+require("lazy").setup({
+  spec = { { import = "plugins" } },
+  install = { colorscheme = { "catppuccin", "habamax" } },
+  performance = {
+    rtp = {
+      disabled_plugins = { "netrwPlugin" },
+    },
+  },
+})
+
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
