@@ -22,20 +22,6 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
-    keys = {
-      {
-        "<Tab>",
-        "<cmd>BufferLineCycleNext<cr>",
-        desc = "Next Buffer",
-        mode = "n",
-      },
-      {
-        "<leader>x",
-        "<cmd>bd<cr>",
-        desc = "Kill Buffer",
-        mode = "n",
-      },
-    },
     opts = function()
       local bufferline = require("bufferline")
       return {

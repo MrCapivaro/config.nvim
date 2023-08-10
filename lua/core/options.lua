@@ -1,6 +1,6 @@
 local opts = {
   -- clipboard
-  clipboard = unnamedplus,
+  clipboard = "unnamedplus",
   -- indentation
   shiftwidth = 2,
   tabstop = 2,

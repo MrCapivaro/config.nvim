@@ -33,29 +33,19 @@ return {
       local defaults = require("cmp.config.default")()
 
       return {
-        completion = { completeopt = "menu,menuone,noinsert" },
+        completion = { completeopt = "menu,menuone,noinsert,noselect" },
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end,
         },
-        mapping = cmp.mapping.preset.insert({
-          -- My Mappings
-          ["<Tab>"] = cmp.mapping.select_next_item({
-            behavior = cmp.SelectBehavior.Insert,
-          }),
-          ["<S-Tab>"] = cmp.mapping.select_prev_item({
-            behavior = cmp.SelectBehavior.Insert,
-          }),
+        mapping = {
+          ["<Tab>"] = cmp.mapping.select_next_item(),
+          ["<S-Tab>"] = cmp.mapping.select_prev_item(),
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-Cr>"] = cmp.mapping.abort(),
+          ["<C-e>"] = cmp.mapping.abort(),
           ["<Cr>"] = cmp.mapping.confirm({ select = false }),
-          ["<S-Cr>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          }),
-          -- Disabled Mappings
-        }),
+        },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },

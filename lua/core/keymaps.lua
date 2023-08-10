@@ -1,25 +1,33 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-local keymaps = {
-  n = {
-    ["<leader>e"] = "<cmd>Ex<Cr>",
-    ["<C-s>"] = "<cmd>w<Cr>",
-    ["<Esc>"] = "<cmd>nohlsearch<Cr>",
-    -- Window Quick Movement
-    ["<C-l>"] = "<C-w>l",
-    ["<C-h>"] = "<C-w>h",
-  },
-  i = {},
-  v = {
-    -- Move selected lines
-    ["J"] = ":m '>+1<cr>gv=gv",
-    ["K"] = ":m '<-2<cr>gv=gv",
-  },
-}
+local map = vim.keymap.set
 
-for mode, mode_values in pairs(keymaps) do
-  for k, v in pairs(mode_values) do
-    vim.keymap.set(mode, k, v)
-  end
-end
+-- File Explorer
+map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Open File Explorer" })
+
+-- Save Buffer
+map({ "n", "i", "v", "s" }, "<C-s>", "<cmd>w<cr> ", { desc = "Save" })
+
+-- Move Lines
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+
+-- Clear search with <esc>
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
+-- Buffer Commands
+map({ "n", "v", "s" }, "<Tab>", "<cmd>bn<cr>")
+map({ "n", "v", "s" }, "L", "<cmd>bn<cr>")
+map({ "n", "v", "s" }, "H", "<cmd>bp<cr>")
+map({ "n", "v", "s" }, "<leader>x", "<cmd>bd<cr>")

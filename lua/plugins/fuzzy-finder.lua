@@ -8,5 +8,10 @@ return {
       "<cmd>Telescope find_files<cr>",
       desc = "Find files"
     },
+    {
+      "<leader><leader>",
+      "<cmd>Telescope find_files<cr>",
+      desc = "Find files"
+    },
   },
 }
