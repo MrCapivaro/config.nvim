@@ -42,13 +42,14 @@ return {
           map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
           map({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
           map('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-
           map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
           map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
           map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
         end
       })
 
+      -- TODO: Implement a ensure_installed function that accepts standalone
+      -- formatters and lintes, like stylua
       require("mason-lspconfig").setup({
         ensure_installed = {
           "html",
