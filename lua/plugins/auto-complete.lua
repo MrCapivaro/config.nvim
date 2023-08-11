@@ -75,7 +75,7 @@ return {
   -- Autopairs
   {
     "windwp/nvim-autopairs",
-    event = "VeryLazy",
+    event = "InsertEnter",
     config = function()
       -- Autopairs in functions and methods
       local cmp = require("cmp")
