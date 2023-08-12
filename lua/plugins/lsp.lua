@@ -87,7 +87,11 @@ return {
         ),
         sources = {
           null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.prettierd,
+          null_ls.builtins.formatting.prettier.with({
+            env = {
+              PRETTIER_DEFAULT_CONFIG = vim.fn.expand(vim.fn.stdpath("config") .. "/lua/extras/config/formatters/.prettierrc"),
+            },
+          }),
         },
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
