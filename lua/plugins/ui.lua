@@ -5,6 +5,9 @@ return {
     priority = 1000,
     opts = {
       transparent_background = true,
+      integrations = {
+        notify = true,
+      },
     },
     init = function()
       vim.cmd.colorscheme("catppuccin")
@@ -17,7 +20,11 @@ return {
     opts = function()
       local noice = require("noice")
       return {
-        options = { theme = "catppuccin" },
+        options = {
+          theme = "catppuccin",
+          component_separators = "",
+          section_separators = "",
+        },
         sections = {
           lualine_x = {
             {
