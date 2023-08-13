@@ -13,5 +13,10 @@ return {
       "<cmd>Telescope find_files<cr>",
       desc = "Find files"
     },
+    {
+      "<leader>?",
+      "<cmd>Telescope keymaps<cr>",
+      desc = "Keymaps Cheatsheet"
+    },
   },
 }
