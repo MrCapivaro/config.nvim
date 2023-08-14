@@ -8,7 +8,7 @@ return {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    {"<leader>e", "<cmd>Neotree toggle<cr>", desc = "Neotree"},
+    { "<leader>e", "<cmd>Neotree float<cr>", desc = "Float Neotree" },
   },
   config = true,
 }
