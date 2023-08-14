@@ -5,7 +5,10 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   cmd = { "TSUpadateSync" },
   opts = {
-    highlight = { enable = true },
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = { "org" },
+    },
     indent = { enable = false },
     ensure_installed = {
       "lua",
@@ -14,7 +17,7 @@ return {
 
       "markdown",
       "markdown_inline",
-      "norg",
+      "org",
 
       "bash",
 

@@ -1,18 +1,20 @@
+local filetypes = {
+  "css",
+  "html",
+  "javascript",
+  "typescript",
+  "jsx",
+}
+
 return {
   "norcalli/nvim-colorizer.lua",
   event = "VeryLazy",
-  ft = { "css", "javascript", "typescript", "jsx" },
+  ft = filetypes,
   opts = {
     css = true,
     css_fn = true,
   },
   config = function(_, opts)
-    require("colorizer").setup({
-      "css",
-      "html",
-      "javascript",
-      "typescript",
-      "jsx",
-    }, opts)
+    require("colorizer").setup(filetypes, opts)
   end
 }

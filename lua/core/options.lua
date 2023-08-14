@@ -1,7 +1,6 @@
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
 -- indentation
--- 2 asd as2 asdas 2
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -18,6 +17,8 @@ vim.opt.showmode = false
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.cmdheight = 0
 vim.opt.colorcolumn = "88"
+-- windows
+vim.opt.shellslash = true
 -- search
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -31,6 +32,9 @@ vim.opt.spelllang = { "en" }
 vim.opt.scrolloff = 16
 vim.opt.sidescrolloff = 8
 vim.opt.updatetime = 50
+-- org
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"
 
 vim.cmd([[colorscheme habamax]])
 vim.cmd([[language en_US.UTF-8]])
