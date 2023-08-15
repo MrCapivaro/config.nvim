@@ -18,6 +18,7 @@ return {
       "markdown",
       "markdown_inline",
       "org",
+      "norg",
 
       "bash",
 

@@ -42,7 +42,8 @@ return {
         mapping = {
           ["<Tab>"] = cmp.mapping.select_next_item(),
           ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-          ["<C-Space>"] = cmp.mapping.complete(),
+          -- BUG: <C-Space> doesn't work on Windows
+          -- ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<Cr>"] = cmp.mapping.confirm({ select = false }),
         },
@@ -51,6 +52,7 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
+          { name = "neorg" },
         }),
         -- formatting = {},
         -- experimental = {
