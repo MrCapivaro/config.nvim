@@ -8,7 +8,8 @@ return {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<leader>e", "<cmd>Neotree float<cr>", desc = "Float Neotree" },
+    { "<leader>e",  "<cmd>Neotree float<cr>",         desc = "Filetree" },
+    { "<leader>bb", "<cmd>Neotree buffers float<cr>", desc = "Float Buffers" },
   },
-  config = true,
+  opts = {},
 }

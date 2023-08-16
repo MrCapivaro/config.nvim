@@ -18,7 +18,7 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.cmdheight = 0
 vim.opt.colorcolumn = "88"
 -- windows
-vim.opt.shellslash = true
+vim.opt.shellslash = false
 -- search
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
