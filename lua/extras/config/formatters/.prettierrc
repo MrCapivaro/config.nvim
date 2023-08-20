@@ -1,12 +1,4 @@
 {
-  "printWidth": 80,
-  "tabWidth": 2,
-  "overrides": [
-    {
-      "files": "*.html",
-      "options": {
-        "htmlWhitespaceSensitivity": "strict",
-      }
-    }
-  ]
+  "printWidth": 100,
+  "tabWidth": 2
 }
