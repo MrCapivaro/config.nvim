@@ -53,6 +53,7 @@ return {
           "html",
           "cssls",
           "emmet_ls",
+          "clangd",
         },
         handlers = {
           function(server_name)
@@ -94,6 +95,9 @@ return {
           --       "/lua/extras/config/formatters/.prettierrc"),
           --   },
           -- }),
+          null_ls.builtins.formatting.clang_format.with({
+            filetypes = { "c", "cpp", "cs", "java" },
+          }),
         },
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
