@@ -59,6 +59,11 @@ return {
           function(server_name)
             lspconfig[server_name].setup({})
           end,
+          ["clangd"] = function()
+            lspconfig.clangd.setup({
+              cmd = { "clangd", "-offset-encoding=utf-16" },
+            })
+          end,
           ["lua_ls"] = function()
             lspconfig.lua_ls.setup({
               settings = {
