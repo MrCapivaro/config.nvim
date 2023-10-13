@@ -71,8 +71,7 @@ return {
           end, { "i", "s" }),
           -- ["<Tab>"] = cmp.mapping.select_next_item(),
           -- ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-          -- BUG: <C-Space> doesn't work on Windows
-          ["<C-v>"] = cmp.mapping.complete(),
+          ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<Cr>"] = cmp.mapping.confirm({ select = false }),
         },

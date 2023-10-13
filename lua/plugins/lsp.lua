@@ -54,6 +54,7 @@ return {
           "cssls",
           "emmet_ls",
           "clangd",
+          "pyright",
         },
         handlers = {
           function(server_name)
@@ -94,6 +95,7 @@ return {
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.prettier,
+          null_ls.builtins.formatting.black,
           -- null_ls.builtins.formatting.prettier.with({
           --   env = {
           --     PRETTIER_DEFAULT_CONFIG = vim.fn.expand(vim.fn.stdpath("config") ..
