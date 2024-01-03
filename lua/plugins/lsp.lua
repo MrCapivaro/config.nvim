@@ -95,13 +95,7 @@ return {
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.prettier,
-          null_ls.builtins.formatting.black,
-          -- null_ls.builtins.formatting.prettier.with({
-          --   env = {
-          --     PRETTIER_DEFAULT_CONFIG = vim.fn.expand(vim.fn.stdpath("config") ..
-          --       "/lua/extras/config/formatters/.prettierrc"),
-          --   },
-          -- }),
+          null_ls.builtins.formatting.autopep8,
           null_ls.builtins.formatting.clang_format.with({
             filetypes = { "c", "cpp", "cs", "java" },
           }),
@@ -113,12 +107,7 @@ return {
               group = augroup,
               buffer = bufnr,
               callback = function()
-                vim.lsp.buf.format({
-                  bufnr = bufnr,
-                  -- filter = function(_client)
-                  --   return _client.name == "null-ls"
-                  -- end,
-                })
+                vim.lsp.buf.format({ async = false })
               end
             })
           end

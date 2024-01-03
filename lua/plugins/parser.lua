@@ -9,7 +9,7 @@ return {
       enable = true,
       additional_vim_regex_highlighting = { "org" },
     },
-    indent = { enable = false },
+    indent = { enable = true },
     ensure_installed = {
       "lua",
       -- "luadoc",
